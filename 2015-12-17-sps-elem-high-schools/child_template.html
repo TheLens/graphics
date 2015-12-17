@@ -1,0 +1,84 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline }}</h1>{% endif %}
+    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed) }}</h2>{% endif %}
+
+    <div id="graphic">
+        <table>
+            <thead>
+                <tr>
+                    <th>{{ COPY.labels.hdr_1 }}</th>
+                    <th>{{ COPY.labels.hdr_2 }}</th>
+                    <th class="amt">{{ COPY.labels.hdr_3 }}</th>
+                    <th>{{ COPY.labels.hdr_4 }}</th>
+                    <th class="amt">{{ COPY.labels.hdr_5 }}</th>
+                </tr>
+            </thead>
+
+            {% for row in COPY.data %}
+            <tr class="school-{{ row.hdr_1|classify }}">
+                <td data-title="{{ COPY.labels.hdr_1 }}">{{ row.hdr_1 }}</td>
+                <td data-title="{{ COPY.labels.hdr_2 }}">{{ row.hdr_2 }}</td>
+                <td data-title="{{ COPY.labels.hdr_3 }}" class="amt">{{ row.hdr_3 }}</td>
+                <td data-title="{{ COPY.labels.hdr_4 }}">{{ row.hdr_4 }}</td>
+                <td data-title="{{ COPY.labels.hdr_5 }}" class="amt">{{ row.hdr_5 }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {% if COPY.labels.footnote %}
+    <div class="footnotes">
+        <h4>Notes</h4>
+        <p>{{ COPY.labels.footnote }}</p>
+
+        <div style="display: inline-block; font-size: 12px; padding: 5px 4% 0 0;">
+          <strong>Elementary and middle schools</strong>
+          <ul style="list-style-type: none; padding: 0;">
+            <li>A: 100.0-150.0</li>
+            <li>B: 83.9-99.9</li>
+            <li>C: 66.2-83.8</li>
+            <li>D: 45.2-66.1</li>
+            <li>F: 0-45.1</li>
+        </div>
+        <div style="display: inline-block; font-size: 12px; padding: 0 4% 0 0;">
+          <strong>Combination schools</strong>
+          <ul style="list-style-type: none; padding: 0;">
+            <li>A: 100-150</li>
+            <li>B: 85-99.9</li>
+            <li>C: 70-84.9</li>
+            <li>D: 50-69.9</li>
+            <li>F: 0-49.9</li>
+        </ul>
+        </div>
+        <div style="display: inline-block; font-size: 12px; padding: 0;">
+          <strong>High schools</strong>
+          <ul style="list-style-type: none; padding: 0;">
+            <li>A: 100-150</li>
+            <li>B: 85-99.9</li>
+            <li>C: 70-84.9</li>
+            <li>D: 47.1-69.9</li>
+            <li>F: 0-47</li>
+          </ul>
+        </div>
+
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source }}</p>{% endif %}
+        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit }}</p>{% endif %}
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+
+    {{ JS.push('js/lib/pym.js') }}
+    {{ JS.push('js/graphic.js') }}
+    {{ JS.render('js/graphic-footer.js') }}
+
+{% endblock js %}
