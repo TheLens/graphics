@@ -2,62 +2,60 @@
 
 {% block content %}
 
-    {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
-    {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
+  {% if COPY.labels.headline %}<h1>{{ COPY.labels.headline|smarty }}</h1>{% endif %}
+  {% if COPY.labels.subhed %}<h2>{{ render(COPY.labels.subhed)|smarty }}</h2>{% endif %}
 
-    <div class="graphic">
-        <table id="state-table">
-            <thead>
-                <tr>
-                    <th>
-                        <div class="header text-left">{{ COPY.labels.hdr_school }}</div>
-                    </th>
-                    <th>
-                        <div class="header">{{ COPY.labels.hdr_years }}</div>
-                    </th>
-                    <th>
-                        <div class="header">{{ COPY.labels.hdr_2015 }}</div>
-                    </th>
-                    <th>
-                        <div class="header">{{ COPY.labels.hdr_2014 }}</div>
-                    </th>
+  <div class="graphic">
+    <table id="state-table">
+      <thead>
+        <tr>
+          <th>
+            <div class="header text-left">{{ COPY.labels.hdr_school }}</div>
+          </th>
+          <th>
+            <div class="header">{{ COPY.labels.hdr_years }}</div>
+          </th>
+          <th>
+             <div class="header">{{ COPY.labels.hdr_2015 }}</div>
+          </th>
+          <th>
+            <div class="header">{{ COPY.labels.hdr_2014 }}</div>
+          </th>
+        </tr>
+      </thead>
 
-                </tr>
-            </thead>
+      {% for row in COPY.data %}
+      <tr class="state-{{ COPY.labels.hdr_school }}">
+        <td data-title="{{ COPY.labels.hdr_school }}" class="text-left">{{ row.hdr_school }}</td>
+        <td data-title="{{ COPY.labels.hdr_years }}">{{ row.hdr_years|int() }}</td>
+        <td data-title="{{ COPY.labels.hdr_2015 }}">{{ row.hdr_2015 }}</td>
+        <td data-title="{{ COPY.labels.hdr_2014 }}">{{ row.hdr_2014 }}</td>
+      </tr>
+      {% endfor %}
 
-            {% for row in COPY.data %}
-            <tr class="state-{{ COPY.labels.hdr_school }}">
-                <td data-title="{{ COPY.labels.hdr_school }}" class="text-left">{{ row.hdr_school }}</td>
-                <td data-title="{{ COPY.labels.hdr_years }}">{{ row.hdr_years|int() }}</td>
-                <td data-title="{{ COPY.labels.hdr_2015 }}">{{ row.hdr_2015 }}</td>
-                <td data-title="{{ COPY.labels.hdr_2014 }}">{{ row.hdr_2014 }}</td>
+    </table>
+  </div>
 
-            </tr>
-            {% endfor %}
+  {% if COPY.labels.footnote %}
+  <div class="footnotes">
+    <h4>Notes</h4>
+    <p>{{ COPY.labels.footnote|smarty }}</p>
+  </div>
+  {% endif %}
 
-        </table>
-    </div>
-
-    {% if COPY.labels.footnote %}
-    <div class="footnotes">
-        <h4>Notes</h4>
-        <p>{{ COPY.labels.footnote|smarty }}</p>
-    </div>
-    {% endif %}
-
-    <div class="footer">
-        {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
-        {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
-    </div>
+  <div class="footer">
+    {% if COPY.labels.source %}<p>Source: {{ COPY.labels.source|smarty }}</p>{% endif %}
+    {% if COPY.labels.credit %}<p>Credit: {{ COPY.labels.credit|smarty }}</p>{% endif %}
+  </div>
 
 {% endblock content %}
 
 {% block js %}
 
-    {{ JS.push('js/lib/tablesort.js') }}
-    {{ JS.push('js/lib/tablesort.numeric.js') }}
-    {{ JS.push('js/lib/pym.js') }}
-    {{ JS.push('js/graphic.js') }}
-    {{ JS.render('js/graphic-footer.js') }}
+  {{ JS.push('js/lib/tablesort.js') }}
+  {{ JS.push('js/lib/tablesort.numeric.js') }}
+  {{ JS.push('js/lib/pym.js') }}
+  {{ JS.push('js/graphic.js') }}
+  {{ JS.render('js/graphic-footer.js') }}
 
 {% endblock js %}

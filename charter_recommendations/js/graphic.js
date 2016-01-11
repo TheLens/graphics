@@ -1,13 +1,14 @@
 /*
  * Initialize the graphic.
  */
+
 var onWindowLoaded = function() {
     // Uncomment to enable column sorting
     // var tablesort = new Tablesort(document.getElementById('state-table'));
 
-    pymChild = new pym.Child({});
-}
+    pymChild = new pym.Child({polling: 1000});
 
+};
 
 /*
  * Initially load the graphic

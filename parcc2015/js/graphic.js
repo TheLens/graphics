@@ -2,7 +2,7 @@
  * Initialize the graphic.
  */
 var onWindowLoaded = function() {
-    pymChild = new pym.Child({});
+    pymChild = new pym.Child({polling: 1000});
 };
 
 
