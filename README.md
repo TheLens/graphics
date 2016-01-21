@@ -2,6 +2,7 @@ A collection of graphics and the data they used. See each graphic's folder for a
 
 |Folder                 |URL                            |Published    |
 |:----------------------|:------------------------------|------------:|
+|acsa-scores            |[Story][acsa-scores]           |Jan. 21, 2016|
 |charter_recommendations|[Story][charter_recommendation]|Jan. 6, 2016 |
 |charter_extensions     |[Story][charter_recommendation]|Jan. 6, 2016 |
 |transfers              |[Story][transfers]             |Dec. 18, 2015|
@@ -10,6 +11,7 @@ A collection of graphics and the data they used. See each graphic's folder for a
 |parcc2015-highschool   |[Story][parcc2015-highschool]  |Oct. 29, 2015|
 |parcc2015              |[Story][parcc2015]             |Oct. 22, 2015|
 
+[acsa-scores]: http://thelensnola.org/2016/01/21/a-week-after-announcing-interim-ceo-algiers-charter-board-to-take-vote/
 [charter_recommendation]: http://thelensnola.org/2016/01/06/11-charters-under-standard-review-win-favor-of-state-department-of-education/
 [transfers]: http://thelensnola.org/2015/12/18/33-out-of-51-rsd-charters-are-eligible-to-return-to-school-board-oversight/
 [sps-elem-high-schools]: http://thelensnola.org/2015/12/17/see-a-full-list-of-new-orleans-parish-public-school-grades-in-one-place/
